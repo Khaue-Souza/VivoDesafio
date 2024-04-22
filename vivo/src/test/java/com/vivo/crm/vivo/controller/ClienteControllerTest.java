@@ -59,7 +59,7 @@ public class ClienteControllerTest {
                         .content("{\n" +
                                 "    \"name\": \"Khaue\",\n" +
                                 "    \"email\": \"Khaue.souza@hotmail.com\",\n" +
-                                "    \"cpf\": \"123456789\"\n" +
+                                "    \"document\": \"123456789\"\n" +
                                 "}"))
                 .andExpect(status().isOk());
 
@@ -73,13 +73,13 @@ public class ClienteControllerTest {
         clienteExistente.setId(clienteId);
         clienteExistente.setName("Nome existente");
         clienteExistente.setEmail("email@existente.com");
-        clienteExistente.setCpf(Long.valueOf("12345678900"));
+        clienteExistente.setDocument("12345678900");
 
         Cliente clienteAtualizado = new Cliente();
         clienteAtualizado.setId(clienteId);
         clienteAtualizado.setName("Khaue");
         clienteAtualizado.setEmail("Khaue.souza@hotmail.com");
-        clienteAtualizado.setCpf(Long.valueOf("123456789"));
+        clienteAtualizado.setDocument("123456789");
 
         given(clienteRepository.findById(clienteId)).willReturn(Optional.of(clienteExistente));
         given(clienteRepository.save(any(Cliente.class))).willReturn(clienteAtualizado);
@@ -89,12 +89,12 @@ public class ClienteControllerTest {
                         .content("{\n" +
                                 "    \"name\": \"Khaue\",\n" +
                                 "    \"email\": \"Khaue.souza@hotmail.com\",\n" +
-                                "    \"cpf\": \"123456789\"\n" +
+                                "    \"document\": \"123456789\"\n" +
                                 "}"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Khaue"))
                 .andExpect(jsonPath("$.email").value("Khaue.souza@hotmail.com"))
-                .andExpect(jsonPath("$.cpf").value("123456789"));
+                .andExpect(jsonPath("$.document").value("123456789"));
 
         verify(clienteRepository).save(any(Cliente.class));
     }

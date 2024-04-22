@@ -30,7 +30,7 @@ public class ClienteController {
                 .map(clienteExistente -> {
                     clienteExistente.setName(clienteDetalhes.getName());
                     clienteExistente.setEmail(clienteDetalhes.getEmail());
-                    clienteExistente.setCpf(clienteDetalhes.getCpf());
+                    clienteExistente.setDocument(clienteDetalhes.getDocument());
                     Cliente clienteAtualizado = clienteRepository.save(clienteExistente);
                     return ResponseEntity.ok(clienteAtualizado);
                 })

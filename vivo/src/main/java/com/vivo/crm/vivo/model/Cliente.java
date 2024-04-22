@@ -14,7 +14,7 @@ public class Cliente {
     @Column(nullable = false)
     private String email;
     @Column(nullable = false)
-    private Long cpf;
+    private String document;
 
 
 }
