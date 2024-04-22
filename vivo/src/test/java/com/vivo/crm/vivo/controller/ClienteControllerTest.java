@@ -50,8 +50,8 @@ public class ClienteControllerTest {
 
     @Test
     public void testAdicionarCliente() throws Exception {
-        Cliente novoCliente = new Cliente(); // Configure o cliente conforme necessário
-        Cliente clienteSalvo = new Cliente(); // Com id atribuído
+        Cliente novoCliente = new Cliente();
+        Cliente clienteSalvo = new Cliente();
         given(clienteRepository.save(any(Cliente.class))).willReturn(clienteSalvo);
 
         mockMvc.perform(post("/clientes")
