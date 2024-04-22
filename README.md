@@ -17,6 +17,7 @@ curl --location 'localhost:8080/clientes' \
 curl --location --request PUT 'http://localhost:8080/clientes/1' \
 --header 'Content-Type: application/json' \
 --data-raw '{
+   
     "name": "Nome Atualizado",
     "email": "email.atualizado@example.com",
     "document": "987654321"
